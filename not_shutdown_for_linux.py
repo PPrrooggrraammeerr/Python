@@ -3,7 +3,7 @@
 
 # not_shutdown.py
 
-# O script not_shutdown.py evita que o computador entre em modo de suspensão automática.
+# O script not_shutdown_for_linux.py utiliza um comando chamado xset com parâmetros e assim evita que o computador entre em modo de suspensão automática.
 
 import time
 import os
