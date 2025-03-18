@@ -3,6 +3,8 @@
 
 # ocr_tesseract.py
 
+# O script ocr_tesseract.py tem como objetivo abrir um site, localizar um texto específico usando OCR e clicar automaticamente nele.
+
 import os
 import time
 import webbrowser
