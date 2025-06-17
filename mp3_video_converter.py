@@ -5,10 +5,12 @@
 
 import yt_dlp
 import os
+import time
+import shutil
 
 get_cwd = os.getcwd ()
 
-FFMPEG_PATH = r'C:\ffmpeg\bin\ffmpeg.exe'
+FFMPEG_PATH = r'C:\ProgramData\chocolatey\lib\ffmpeg\tools\ffmpeg\bin\ffmpeg.exe'
 
 def find_video (music_name):
 
@@ -81,12 +83,26 @@ def download_youtube_for_mp3 (url, destination = 'audio.mp3'):
     print ('Error: file MP3 not found!')
 
 filename_songs = f'{get_cwd}\\songs.txt'
+
+join_file = os.path.join (get_cwd, 'songs.txt')
+
+file = open (f'{join_file}', 'r')
+
+for song in file:
+
+    columns = song.strip ().split (' - ')
     
-with open (filename_songs, 'r') as file:
-
-    songs = file.readlines ()
-
-    for song in songs:
+    if len (columns) > 1:
+        
+        band_name = columns [0]
+        file_join_band_name = os.path.join (get_cwd, band_name)
+        
+        os.mkdir (file_join_band_name)
+    
+        music_name = columns [1]
+        file_join_music_name = os.path.join (file_join_band_name, music_name)
+        
+        os.mkdir (file_join_music_name)
 
         song = song.strip ()
 
@@ -96,4 +112,6 @@ with open (filename_songs, 'r') as file:
         if url_video:
 
             download_youtube_for_mp3 (url_video, f'{song}.mp3')
-
+            time.sleep (3.5)
+            
+            shutil.move (f'{get_cwd}\\{song}.mp3', f'{get_cwd}\\{band_name}\\{music_name}\\{song}.mp3')
