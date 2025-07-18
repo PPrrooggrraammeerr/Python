@@ -20,7 +20,7 @@ cursor.execute ('SELECT imagem_url FROM dashboards')
 
 results = cursor.fetchall ()
 
-uri_link = 'https://catalogobi.onrender.com/'
+uri_link = 'https://catalogo-bi-production.up.railway.app/'
 
 for result in results:
     
@@ -38,5 +38,6 @@ for result in results:
             
             with open (f'images\\{image}', 'wb') as file:
                 
-                shutil.copyfileobj (request.raw, file)
+                file.write (request.content)
+
 
