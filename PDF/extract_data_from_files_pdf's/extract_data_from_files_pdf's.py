@@ -111,9 +111,10 @@ def main ():
     dot_index = full_now.index ('.')
     now = full_now[:dot_index]
     
-    wb.save('invoices - {}.xlsx'.format (now))
+    wb.save ('invoices - {}.xlsx'.format (now))
 
 if __name__ == '__main__':
     
     main()
+
 
