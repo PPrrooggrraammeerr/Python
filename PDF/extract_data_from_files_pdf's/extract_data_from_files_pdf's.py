@@ -104,8 +104,8 @@ def main ():
 
             last_empty_line += 1
 
-    cursor.close()
-    database.close()
+    cursor.close ()
+    database.close ()
 
     full_now = str (datetime.now ()).replace (':', '-')
     dot_index = full_now.index ('.')
@@ -115,6 +115,7 @@ def main ():
 
 if __name__ == '__main__':
     
-    main()
+    main ()
+
 
 
